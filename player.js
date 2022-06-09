@@ -4,10 +4,16 @@ class Player {
     this.token = icon;
     this.wins = 0;
   }
-  saveWinsToStorage() {
-    return this.wins++
+  takeTurn(fighters) {
+    if (this.name === "you") {
+    return this.chooseFighterForHuman()
+    } else if (this.name === "computer") {
+    return this.getRandomFighterFromArray(fighters);
+    }
   }
-  takeTurn() {
-
+// telling comp to choose
+  getRandomFighterFromArray(fighters) {
+    var randomArrayIndex = Math.floor(Math.random() * fighters.length);
+    return fighters[randomArrayIndex];
   }
 }

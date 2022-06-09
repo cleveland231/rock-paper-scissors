@@ -59,7 +59,7 @@ body {
   border-left: black solid 5px;
 }
 
-.rock-icon, .paper-icon, .scissor-icon, .cow-icon, .chili-icon {
+.icon {
   width: 100px;
   height: 100px;
   cursor: pointer;

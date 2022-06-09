@@ -1,39 +1,40 @@
 class Game {
-  constructor(game, player1, player2) {
+  constructor(game, you, computer) {
   this.game = game;
-  this.players = [player1, player2];
-  this.spicyTurn = false;
+  this.players = [you, computer];
   this.fighters = [];
-  // Win Conditions
+  this.spicyTurn = false;
   }
   trackGameData() {
-
+    // when human clicks on icon, function is fired called game.startGame
+    // in side of function, player 1 and 2 take turns
   }
-  trackGameMode() {
+  checkWinConditions(event) {
+    console.log(compChoice);
+    if (event.target.id == rock && compChoice == scissors) {
 
-  }
-  checkWinConditions() {
-    // if (this.win === ) {
-    //
-    // }
+    }
   }
   checkForDraw() {
-
+    // if (player1.fighter === ) {
+    // }
   }
   resetGame() {
-
+    setTimeout()
   }
-  chooseFighters() {
-    if (this.game == spicyGame) {
-      for (var i = 0; i < fighters.length; i++) {
-        fighters.push()
+  setCorrectFighters() {
+    var spicyFightersArray = ["rock", "paper", "scissor", "cow", "chili"];
+    var classicFightersArray = ["rock", "paper", "scissor"];
+    console.log(this.game);
+    if (this.game === "spicyGameRules") {
+      for (var i = 0; i < spicyFightersArray.length; i++) {
+        this.fighters.push(spicyFightersArray[i]);
+      }
     }
-  } if (this.game == classicGame) {
-      fighters.push()
+    if (this.game === "classicGameRules") {
+      for (var i = 0; i < classicFightersArray.length; i++) {
+        this.fighters.push(classicFightersArray[i]);
+      }
     }
-
-    // render rock paper scissors.
-    // if spicy render cow, chili, rps.
-
   }
 }
