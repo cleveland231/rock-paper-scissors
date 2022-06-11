@@ -11,22 +11,36 @@ var iconPaper = document.querySelector("#icon-paper");
 var iconScissor = document.querySelector("#icon-scissor");
 var iconChili = document.querySelector("#icon-chili");
 var iconCow = document.querySelector("#icon-cow");
+var message = document.querySelector(".message")
 
 // global variables
 var player1 = new Player("you", "./assets/you.svg");
 var player2 = new Player("computer", "./assets/computer.svg");
-
+var compChoice
 
 // event listeners
-// window.addEventListener("load", loadingPage)
-// buttonChangeGame.addEventListener("click", changeGameMode);
+window.addEventListener("load", loadingPage)
+buttonChangeGame.addEventListener("click", changeGameMode);
 classicGameRules.addEventListener("click", chooseClassicGame);
 spicyGameRules.addEventListener("click", chooseSpicyGame);
 fightersSection.addEventListener("click", clickIcon);
 
+
 // functions
-function clickIcon() {
-  game.checkWinConditions()
+// setTimeout()
+
+function loadingPage() {
+  hide(buttonChangeGame)
+}
+
+// function test() {
+//   hide
+// }
+
+function changeGameMode() {
+  show(gameMode)
+  show(buttonChangeGame)
+  hide(fightersSection)
 }
 
 function chooseClassicGame() {
@@ -38,9 +52,10 @@ function chooseClassicGame() {
   `
   var game = new Game("classicGameRules", player1, player2);
   game.setCorrectFighters()
-  var compChoice = player2.takeTurn(game.fighters);
+  compChoice = player2.takeTurn(game.fighters);
   console.log(compChoice);
   hide(gameMode);
+  hide(buttonChangeGame);
 }
 
 function chooseSpicyGame() {
@@ -54,9 +69,95 @@ function chooseSpicyGame() {
   `
   var game = new Game("spicyGameRules", player1, player2);
   game.setCorrectFighters()
-  var compChoice = player2.takeTurn(game.fighters);
+  compChoice = player2.takeTurn(game.fighters);
+  // var playerChoice = player1.takeTurn();
   console.log(compChoice);
+  hide(gameMode);
+  hide(buttonChangeGame);
 }
+
+function checkWinConditions(event) {
+  // console.log(compChoice);
+  if (event.target.id === "iconRock" && compChoice === "iconScissor") {
+    gameTitle.innerHTML = "<h3> YOU WON </h3>"
+  } else if (event.target.id === "iconRock" && compChoice === "iconPaper") {
+    gameTitle.innerHTML = "<h3> YOU LOST </h3>"
+  } else if (event.target.id === "iconRock" && compChoice === "iconRock") {
+    gameTitle.innerHTML = "<h3> DRAW </h3>"
+  } else if (event.target.id === "iconRock" && compChoice === "iconChili") {
+    gameTitle.innerHTML = "<h3> YOU WON </h3>"
+  } else if (event.target.id === "iconRock" && compChoice === "iconCow") {
+    gameTitle.innerHTML = "<h3> YOU LOST </h3>"
+  } else if (event.target.id === "iconPaper" && compChoice === "iconRock") {
+    gameTitle.innerHTML = "<h3> YOU WON </h3>"
+  } else if (event.target.id === "iconPaper" && compChoice === "iconScissor") {
+    gameTitle.innerHTML = "<h3> YOU LOST </h3>"
+  } else if (event.target.id === "iconPaper" && compChoice === "iconPaper") {
+    gameTitle.innerHTML = "<h3> DRAW </h3>"
+  } else if (event.target.id === "iconPaper" && compChoice === "iconCow") {
+    gameTitle.innerHTML = "<h3> YOU WON </h3>"
+  } else if (event.target.id === "iconPaper" && compChoice === "iconChili") {
+    gameTitle.innerHTML = "<h3> YOU LOST </h3>"
+  } else if (event.target.id === "iconScissor" && compChoice === "iconPaper") {
+    gameTitle.innerHTML = "<h3> YOU WON </h3>"
+  } else if (event.target.id === "iconScissor" && compChoice === "iconRock") {
+    gameTitle.innerHTML = "<h3> YOU LOST </h3>"
+  } else if (event.target.id === "iconScissor" && compChoice === "iconScissor") {
+    gameTitle.innerHTML = "<h3> DRAW </h3>"
+  } else if (event.target.id === "iconScissor" && compChoice === "iconChili") {
+    gameTitle.innerHTML = "<h3> YOU WON </h3>"
+  } else if (event.target.id === "iconScissor" && compChoice === "iconCow") {
+    gameTitle.innerHTML = "<h3> YOU LOST </h3>"
+  } else if (event.target.id === "iconChili" && compChoice === "iconRock") {
+    gameTitle.innerHTML = "<h3> YOU WON </h3>"
+  } else if (event.target.id === "iconChili" && compChoice === "iconScissor") {
+    gameTitle.innerHTML = "<h3> YOU LOST </h3>"
+  } else if (event.target.id === "iconChili" && compChoice === "iconChili") {
+    gameTitle.innerHTML = "<h3> DRAW </h3>"
+  } else if (event.target.id === "iconChili" && compChoice === "iconCow") {
+    gameTitle.innerHTML = "<h3> YOU WON </h3>"
+  } else if (event.target.id === "iconChili" && compChoice === "iconPaper") {
+    gameTitle.innerHTML = "<h3> YOU LOST </h3>"
+  } else if (event.target.id === "iconCow" && compChoice === "iconScissor") {
+    gameTitle.innerHTML = "<h3> YOU WON </h3>"
+  } else if (event.target.id === "iconCow" && compChoice === "iconPaper") {
+    gameTitle.innerHTML = "<h3> YOU LOST </h3>"
+  } else if (event.target.id === "iconCow" && compChoice === "iconCow") {
+    gameTitle.innerHTML = "<h3> DRAW </h3>"
+  } else if (event.target.id === "iconCow" && compChoice === "iconChili") {
+    gameTitle.innerHTML = "<h3> YOU WON </h3>"
+  } else if (event.target.id === "iconCow" && compChoice === "iconCow") {
+    gameTitle.innerHTML = "<h3> YOU LOST </h3>"
+  }
+}
+
+function startTime() {
+  const date = new Date();
+  document.getElementById("txt").innerHTML = date.toLocaleTimeString();
+  setTimeout(function() {startTime()}, 1000);
+}
+
+function addWins() {
+  if (gameTitle === "YOU WON") {
+    return player.increaseWins()
+  }
+}
+
+function clickIcon(event) {
+  checkWinConditions(event);
+  show(buttonChangeGame);
+
+}
+
+function show(element) {
+  element.classList.remove('hidden');
+};
+
+function hide(element) {
+  element.classList.add('hidden');
+}
+
+
 
 
 /*
@@ -67,11 +168,6 @@ add player1.takeTurn(which ever event was targeted)
 return fighters so we can see human choice
 
 somthing to think about is game class
-
-
-
-
-
 
 
 gios
@@ -135,16 +231,12 @@ chili= false
 cow= draw
 }
 
+REFACTOR my checkWinConditions function (excessive amount of else ifs)
+Use setTimeout function (where to set it, and on which function)
+use increaseWins for each win (within another function, how to add to
+// that specific player class)
+
 
 
 
 */
-
-
-function show(element) {
-  element.classList.remove('hidden');
-};
-
-function hide(element) {
-  element.classList.add('hidden');
-}

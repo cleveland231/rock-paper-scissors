@@ -5,9 +5,10 @@ class Player {
     this.wins = 0;
   }
   takeTurn(fighters) {
-    if (this.name === "you") {
-    return this.chooseFighterForHuman()
-    } else if (this.name === "computer") {
+    // if (this.name === "you") {
+    // return event.target.id
+    // } else
+    if (this.name === "computer") {
     return this.getRandomFighterFromArray(fighters);
     }
   }
@@ -15,5 +16,8 @@ class Player {
   getRandomFighterFromArray(fighters) {
     var randomArrayIndex = Math.floor(Math.random() * fighters.length);
     return fighters[randomArrayIndex];
+  }
+  increaseWins() {
+    this.wins ++
   }
 }
