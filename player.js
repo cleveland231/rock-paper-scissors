@@ -3,6 +3,7 @@ class Player {
     this.name = name;
     this.token = icon;
     this.wins = 0;
+    this.message = "";
   }
   takeTurn(fighters) {
     // if (this.name === "you") {
