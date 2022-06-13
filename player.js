@@ -6,7 +6,6 @@ class Player {
     this.choice = "";
   }
   setCorrectCompFighters() {
-    console.log(spicyFightersArray);
     if (game.game === "spicyGame") {
       game.computer.choice = spicyFightersArray[this.getRandomFighterFromArray(spicyFightersArray)]
       console.log(game.computer.choice);
