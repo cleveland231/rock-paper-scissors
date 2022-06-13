@@ -3,27 +3,21 @@ class Player {
     this.name = name;
     this.token = icon;
     this.wins = 0;
-    this.choice;
+    this.choice = "";
   }
-  takeTurn(fighters, event) {
-    if (this.name === "you") {
-    return this.choice = event.target.id
-  } else if (this.name === "computer") {
-    return this.choice = this.getRandomFighterFromArray(fighters);
-    // console.log("from take turn function:",this.choice);
+  setCorrectCompFighters() {
+    console.log(spicyFightersArray);
+    if (game.game === "spicyGame") {
+      game.computer.choice = spicyFightersArray[this.getRandomFighterFromArray(spicyFightersArray)]
+      console.log(game.computer.choice);
+    } else if (game.game === "classicGame") {
+      game.computer.choice = classicFightersArray[this.getRandomFighterFromArray(classicFightersArray)]
     }
   }
-// telling comp to choose
-  getRandomFighterFromArray(fighters) {
-    var randomArrayIndex = Math.floor(Math.random() * fighters.length);
-    return fighters[randomArrayIndex];
+  getRandomFighterFromArray(array) {
+    return Math.floor(Math.random() * array.length);
   }
   increaseWins() {
     this.wins ++
   }
 }
-
-/*
-goal is to
-
-*/
