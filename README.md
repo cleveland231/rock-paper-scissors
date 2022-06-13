@@ -4,7 +4,6 @@
   - [Introduction](#introduction)
   - [Technologies](#technologies)
   - [Features](#features)
-  - [Illustrations](#illustrations)
   - [Deployed Page](#deployed-page)
   - [Possible Future Extensions](#possible-future-extensions)
   - [Set Up](#set-up)
@@ -15,7 +14,7 @@
 
 ## Introduction
 
-  Visit rockPaperScissors to...
+  Visit rockPaperScissors to play a classic or spicy game of rock paper scissors.
 
 ## Technologies
   - Javascript
@@ -24,19 +23,18 @@
 
 ## Features
 
-   - You are able to battle a computer...
-
-## Illustrations
-
-
+   - You are able to battle a computer to a classic game of rock paper scissors.
+   - You are able to battle a computer to a spicy game of rock paper scissors, with extra characters.
+   - the wins for each player is shown.
 
 ## Deployed Page
 
-Visit our published rockPaperScissors page [here]()
+Visit the published rockPaperScissors page [here]()
 
 ## Possible Future Extensions
 
-  - Create
+  - Add a loss counter
+  - Change icons and game logic
 
 ## Set Up
 
@@ -45,7 +43,7 @@ Visit our published rockPaperScissors page [here]()
 3. View the project in the browser by running open index.html in your terminal
 
 ## Organizational Resources
-  -
+  - https://docs.google.com/document/d/1hn7JkALde9JXNC-HVOVTT937SuCDjTFUgRYGCQtbnJo/edit?usp=sharing
 
 ## Sources
   - [MDN](http://developer.mozilla.org/en-US/)

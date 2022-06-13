@@ -3,14 +3,14 @@ class Player {
     this.name = name;
     this.token = icon;
     this.wins = 0;
-    this.message = "";
+    this.choice;
   }
-  takeTurn(fighters) {
-    // if (this.name === "you") {
-    // return event.target.id
-    // } else
-    if (this.name === "computer") {
-    return this.getRandomFighterFromArray(fighters);
+  takeTurn(fighters, event) {
+    if (this.name === "you") {
+    return this.choice = event.target.id
+  } else if (this.name === "computer") {
+    return this.choice = this.getRandomFighterFromArray(fighters);
+    // console.log("from take turn function:",this.choice);
     }
   }
 // telling comp to choose
@@ -22,3 +22,8 @@ class Player {
     this.wins ++
   }
 }
+
+/*
+goal is to
+
+*/
