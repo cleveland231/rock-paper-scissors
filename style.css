@@ -1,0 +1,85 @@
+* {
+  /* border: red solid 1px; */
+  font-family: 'Open Sans', sans-serif;
+  background-color: rebeccapurple;
+  color: white;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.hidden {
+	display: none;
+  }
+
+body {
+  display: flex;
+  flex-direction: row;
+  height: 900px;
+}
+
+.left-row {
+  width: 25%;
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
+  border-right: black solid 5px;
+}
+
+.middle-row {
+  width: 50%;
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
+}
+
+.right-row {
+  width: 25%;
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
+  border-left: black solid 5px;
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.you-icon, .computer-icon {
+  width: 100px;
+  height: 100px;
+}
+
+.classic-game-rules, .spicy-game-rules {
+  width: 300px;
+  height: 200px;
+  filter: brightness(110%);
+  cursor: pointer;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  filter: brightness(120%);
+  cursor: pointer;
+}
