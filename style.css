@@ -5,6 +5,10 @@
   color: white;
 }
 
+.winner-icons {
+  display: flex;
+}
+
 h1 {
   font-size: 50px;
 }
