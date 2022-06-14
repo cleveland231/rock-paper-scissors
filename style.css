@@ -5,25 +5,27 @@
   color: white;
 }
 
-.winner-icons {
-  display: flex;
-}
-
 h1 {
   font-size: 50px;
+}
+
+.main-title {
+  font-size: 50px;
+  border-bottom: black solid 5px;
 }
 
 h2 {
   font-size: 30px;
 }
 
+.title {
+  font-size: 30px;
+  border-bottom: black solid 5px;
+}
+
 h3 {
   font-size: 20px;
 }
-
-.hidden {
-	display: none;
-  }
 
 body {
   display: flex;
@@ -31,7 +33,16 @@ body {
   height: 900px;
 }
 
+button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  border-radius: 10px 10px 10px 10px;
+  filter: brightness(130%);
+  cursor: pointer;
+}
+
 .left-row {
+  padding-top: 15px;
   width: 25%;
   display: flex;
 	flex-direction: column;
@@ -49,10 +60,11 @@ body {
 	flex-wrap: nowrap;
 	justify-content: flex-start;
 	align-items: center;
-	align-content: stretch;
+	align-content: space-evenly;
 }
 
 .right-row {
+  padding-top: 15px;
   width: 25%;
   display: flex;
 	flex-direction: column;
@@ -67,23 +79,43 @@ body {
   width: 100px;
   height: 100px;
   cursor: pointer;
+  padding: 10px;
+  transition: all .2s ease-in-out;
+}
+
+.icon:hover, .classic-game-rules:hover, .spicy-game-rules:hover, button:hover {
+  transform: scale(1.1);
+}
+
+.win-icons {
+  width: 150px;
+  height: 150px;
+  padding: 10px;
+}
+
+.winner-screen {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+	align-content: center;
 }
 
 .you-icon, .computer-icon {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
 }
 
 .classic-game-rules, .spicy-game-rules {
   width: 300px;
   height: 200px;
-  filter: brightness(110%);
-  cursor: pointer;
-}
-
-button {
-  padding: 10px 20px;
-  border-radius: 10px;
   filter: brightness(120%);
   cursor: pointer;
+  border: black solid 2px;
+  transition: all .2s ease-in-out;
 }
+
+.hidden {
+	display: none;
+  }
