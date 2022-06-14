@@ -1,4 +1,4 @@
-// querySelectors
+// query selectors
 var classicGameRules = document.querySelector(".classic-game-rules");
 var spicyGameRules = document.querySelector(".spicy-game-rules");
 var buttonChangeGame = document.querySelector(".change-game");
@@ -11,21 +11,19 @@ var iconPaper = document.querySelector("#icon-paper");
 var iconScissor = document.querySelector("#icon-scissor");
 var iconChili = document.querySelector("#icon-chili");
 var iconCow = document.querySelector("#icon-cow");
-var message = document.querySelector(".message");
 var spicyGame = document.querySelector("#spicy-game");
-var classicGame = document.querySelector("#classic-game")
-var computerWins = document.querySelector(".computer-wins")
-var yourWins = document.querySelector(".your-wins")
-var winnerIcons = document.querySelector(".winner-icons")
+var classicGame = document.querySelector("#classic-game");
+var computerWins = document.querySelector(".computer-wins");
+var yourWins = document.querySelector(".your-wins");
+var winnerIcons = document.querySelector(".winner-icons");
 
 // global variables
 var game = new Game();
-var compChoice
 var spicyFightersArray = ["iconRock", "iconPaper", "iconScissor", "iconCow", "iconChili"];
 var classicFightersArray = ["iconRock", "iconPaper", "iconScissor"];
 
 // event listeners
-window.addEventListener("load", loadingPage)
+window.addEventListener("load", loadingPage);
 buttonChangeGame.addEventListener("click", changeGameMode);
 classicGameRules.addEventListener("click", chooseClassicGame);
 spicyGame.addEventListener("click", chooseSpicyGame);
@@ -48,37 +46,37 @@ function clickIcon(event) {
   hide(fightersSection)
   show(buttonChangeGame);
   getFighters(event);
-  // console.log(game.you.choice)
   game.checkWinConditions();
-  // console.log(yourChoice);
-  // console.log(compChoice);
   setTimeout(resetBoard, 2000)
   show(winnerIcons)
 };
 
 function displayWinner() {
-  // console.log("start", game.winner)
-    displayWinnerScreen()
-    if (game.winner === "YOU") {
-    gameTitle.innerHTML = "<h1> YOU WON </h1>"
+  displayWinnerScreen()
+  if (game.winner === "YOU") {
+    gameTitle.innerHTML = "<h1> YOU WON! </h1>"
     yourWins.innerText = `WINS: ${game.you.wins}`
   } else if (game.winner === "COMP") {
-    gameTitle.innerHTML = "<h1> COMPUTER WON </h1>"
-    computerWins.innerText = `WINS ${game.computer.wins}`
+    gameTitle.innerHTML = "<h1> COMPUTER WON!  </h1>"
+    computerWins.innerText = `WINS: ${game.computer.wins}`
   } else {
     gameTitle.innerHTML = "<h1> DRAW </h1>"
     }
   }
 
 function displayWinnerScreen() {
-  winnerIcons.innerHTML =
-  `<img class="icon" src="./assets/${game.you.choice}.svg"> <h2> vs. </h2> <img class="icon" src="./assets/${game.computer.choice}.svg">`
+  winnerIcons.innerHTML = `
+  <h3> YOU - </h3>
+  <img class="win-icons" src="./assets/${game.you.choice}.svg">
+  <h2> vs </h2>
+  <img class="win-icons" src="./assets/${game.computer.choice}.svg">
+  <h3> - COMPUTER </h3>
+  `
 }
-
 
 function changeGameMode() {
   show(gameMode)
-  show(buttonChangeGame)
+  hide(buttonChangeGame)
   hide(fightersSection)
   gameTitle.innerHTML = "<h3> CHOOSE YOUR GAME </h3>"
 }
@@ -99,8 +97,6 @@ function chooseClassicGame(event) {
   <img class="icon" id="iconScissor" src="./assets/iconScissor.svg" alt="scissor">
   `
   game.game = "classicGame"
-  // game.computer.setCorrectCompFighters()
-  // console.log(game.computer.choice);
 };
 
 function chooseSpicyGame(event) {
@@ -116,73 +112,11 @@ function chooseSpicyGame(event) {
   <img class="icon" id="iconScissor" src="./assets/iconScissor.svg" alt="scissor">
   `
   game.game = "spicyGame"
-  // game.computer.setCorrectCompFighters()
-  // console.log(game.computer.choice);
 };
 
-  function resetBoard() {
-    gameTitle.innerHTML = ""
-    show(fightersSection)
-    hide(gameMode)
-    hide(winnerIcons)
-  }
-
-
-
-
-
-
-// function checkWinConditions(event) {
-//   // console.log(compChoice);
-//   if (event.target.id === "iconRock" && compChoice === "iconScissor") {
-//     gameTitle.innerHTML = "<h3> YOU WON </h3>"
-//   } else if (event.target.id === "iconRock" && compChoice === "iconPaper") {
-//     gameTitle.innerHTML = "<h3> YOU LOST </h3>"
-//   } else if (event.target.id === "iconRock" && compChoice === "iconRock") {
-//     gameTitle.innerHTML = "<h3> DRAW </h3>"
-//   } else if (event.target.id === "iconRock" && compChoice === "iconChili") {
-//     gameTitle.innerHTML = "<h3> YOU WON </h3>"
-//   } else if (event.target.id === "iconRock" && compChoice === "iconCow") {
-//     gameTitle.innerHTML = "<h3> YOU LOST </h3>"
-//   } else if (event.target.id === "iconPaper" && compChoice === "iconRock") {
-//     gameTitle.innerHTML = "<h3> YOU WON </h3>"
-//   } else if (event.target.id === "iconPaper" && compChoice === "iconScissor") {
-//     gameTitle.innerHTML = "<h3> YOU LOST </h3>"
-//   } else if (event.target.id === "iconPaper" && compChoice === "iconPaper") {
-//     gameTitle.innerHTML = "<h3> DRAW </h3>"
-//   } else if (event.target.id === "iconPaper" && compChoice === "iconCow") {
-//     gameTitle.innerHTML = "<h3> YOU WON </h3>"
-//   } else if (event.target.id === "iconPaper" && compChoice === "iconChili") {
-//     gameTitle.innerHTML = "<h3> YOU LOST </h3>"
-//   } else if (event.target.id === "iconScissor" && compChoice === "iconPaper") {
-//     gameTitle.innerHTML = "<h3> YOU WON </h3>"
-//   } else if (event.target.id === "iconScissor" && compChoice === "iconRock") {
-//     gameTitle.innerHTML = "<h3> YOU LOST </h3>"
-//   } else if (event.target.id === "iconScissor" && compChoice === "iconScissor") {
-//     gameTitle.innerHTML = "<h3> DRAW </h3>"
-//   } else if (event.target.id === "iconScissor" && compChoice === "iconChili") {
-//     gameTitle.innerHTML = "<h3> YOU WON </h3>"
-//   } else if (event.target.id === "iconScissor" && compChoice === "iconCow") {
-//     gameTitle.innerHTML = "<h3> YOU LOST </h3>"
-//   } else if (event.target.id === "iconChili" && compChoice === "iconRock") {
-//     gameTitle.innerHTML = "<h3> YOU WON </h3>"
-//   } else if (event.target.id === "iconChili" && compChoice === "iconScissor") {
-//     gameTitle.innerHTML = "<h3> YOU LOST </h3>"
-//   } else if (event.target.id === "iconChili" && compChoice === "iconChili") {
-//     gameTitle.innerHTML = "<h3> DRAW </h3>"
-//   } else if (event.target.id === "iconChili" && compChoice === "iconCow") {
-//     gameTitle.innerHTML = "<h3> YOU WON </h3>"
-//   } else if (event.target.id === "iconChili" && compChoice === "iconPaper") {
-//     gameTitle.innerHTML = "<h3> YOU LOST </h3>"
-//   } else if (event.target.id === "iconCow" && compChoice === "iconScissor") {
-//     gameTitle.innerHTML = "<h3> YOU WON </h3>"
-//   } else if (event.target.id === "iconCow" && compChoice === "iconPaper") {
-//     gameTitle.innerHTML = "<h3> YOU LOST </h3>"
-//   } else if (event.target.id === "iconCow" && compChoice === "iconCow") {
-//     gameTitle.innerHTML = "<h3> DRAW </h3>"
-//   } else if (event.target.id === "iconCow" && compChoice === "iconChili") {
-//     gameTitle.innerHTML = "<h3> YOU WON </h3>"
-//   } else if (event.target.id === "iconCow" && compChoice === "iconCow") {
-//     gameTitle.innerHTML = "<h3> YOU LOST </h3>"
-//   }
-// }
+function resetBoard() {
+  gameTitle.innerHTML = ""
+  show(fightersSection)
+  hide(gameMode)
+  hide(winnerIcons)
+};
