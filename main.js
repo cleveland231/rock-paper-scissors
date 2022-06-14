@@ -6,16 +6,16 @@ var icons = document.querySelectorAll(".icon");
 var gameMode = document.querySelector(".game-mode");
 var gameTitle = document.querySelector(".game-title");
 var fightersSection = document.querySelector(".fighters-section");
-var iconRock = document.querySelector("#icon-rock");
-var iconPaper = document.querySelector("#icon-paper");
-var iconScissor = document.querySelector("#icon-scissor");
-var iconChili = document.querySelector("#icon-chili");
-var iconCow = document.querySelector("#icon-cow");
+var iconRock = document.querySelector("#iconRock");
+var iconPaper = document.querySelector("#iconPaper");
+var iconScissor = document.querySelector("#iconScissor");
+var iconChili = document.querySelector("#iconChili");
+var iconCow = document.querySelector("#iconCow");
 var spicyGame = document.querySelector("#spicy-game");
 var classicGame = document.querySelector("#classic-game");
 var computerWins = document.querySelector(".computer-wins");
 var yourWins = document.querySelector(".your-wins");
-var winnerIcons = document.querySelector(".winner-icons");
+var winnerScreen = document.querySelector(".winner-screen");
 
 // global variables
 var game = new Game();
@@ -39,16 +39,16 @@ function hide(element) {
 };
 
 function loadingPage() {
-  hide(buttonChangeGame)
+  hide(buttonChangeGame);
 };
 
 function clickIcon(event) {
-  hide(fightersSection)
+  show(winnerScreen);
   show(buttonChangeGame);
+  hide(fightersSection)
   getFighters(event);
   game.checkWinConditions();
-  setTimeout(resetBoard, 2000)
-  show(winnerIcons)
+  setTimeout(resetBoard, 2000);
 };
 
 function displayWinner() {
@@ -60,26 +60,26 @@ function displayWinner() {
     gameTitle.innerHTML = "<h1> COMPUTER WON!  </h1>"
     computerWins.innerText = `WINS: ${game.computer.wins}`
   } else {
-    gameTitle.innerHTML = "<h1> DRAW </h1>"
+    gameTitle.innerHTML = "<h1> DRAW! </h1>"
     }
   }
 
 function displayWinnerScreen() {
-  winnerIcons.innerHTML = `
+  winnerScreen.innerHTML = `
   <h3> YOU - </h3>
   <img class="win-icons" src="./assets/${game.you.choice}.svg">
   <h2> vs </h2>
   <img class="win-icons" src="./assets/${game.computer.choice}.svg">
   <h3> - COMPUTER </h3>
   `
-}
+};
 
 function changeGameMode() {
-  show(gameMode)
-  hide(buttonChangeGame)
-  hide(fightersSection)
+  show(gameMode);
+  hide(buttonChangeGame);
+  hide(fightersSection);
   gameTitle.innerHTML = "<h3> CHOOSE YOUR GAME </h3>"
-}
+};
 
 function getFighters(event) {
   game.you.choice = event.target.id
@@ -87,22 +87,23 @@ function getFighters(event) {
 };
 
 function chooseClassicGame(event) {
-  hide(gameMode);
+  game.game = "classicGame"
   show(buttonChangeGame);
   show(fightersSection);
+  hide(gameMode);
   gameTitle.innerHTML = "<h3> CHOOSE YOUR FIGHTER </h3>"
   fightersSection.innerHTML = `
   <img class="icon" id="iconRock" src="./assets/iconRock.svg" alt="rock">
   <img class="icon" id="iconPaper" src="./assets/iconPaper.svg" alt="paper">
   <img class="icon" id="iconScissor" src="./assets/iconScissor.svg" alt="scissor">
   `
-  game.game = "classicGame"
 };
 
 function chooseSpicyGame(event) {
-  hide(gameMode);
+  game.game = "spicyGame"
   show(buttonChangeGame);
   show(fightersSection);
+  hide(gameMode);
   gameTitle.innerHTML = "<h3> CHOOSE YOUR FIGHTER </h3>"
   fightersSection.innerHTML = `
   <img class="icon" id="iconCow" src="./assets/iconCow.svg" alt="cow">
@@ -111,12 +112,11 @@ function chooseSpicyGame(event) {
   <img class="icon" id="iconPaper" src="./assets/iconPaper.svg" alt="paper">
   <img class="icon" id="iconScissor" src="./assets/iconScissor.svg" alt="scissor">
   `
-  game.game = "spicyGame"
 };
 
 function resetBoard() {
   gameTitle.innerHTML = ""
-  show(fightersSection)
-  hide(gameMode)
-  hide(winnerIcons)
+  show(fightersSection);
+  hide(gameMode);
+  hide(winnerScreen);
 };
