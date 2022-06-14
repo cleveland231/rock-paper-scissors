@@ -45,7 +45,7 @@ function loadingPage() {
 function clickIcon(event) {
   show(winnerScreen);
   show(buttonChangeGame);
-  hide(fightersSection)
+  hide(fightersSection);
   getFighters(event);
   game.checkWinConditions();
   setTimeout(resetBoard, 2000);
@@ -54,15 +54,15 @@ function clickIcon(event) {
 function displayWinner() {
   displayWinnerScreen()
   if (game.winner === "YOU") {
-    gameTitle.innerHTML = "<h1> YOU WON! </h1>"
+    gameTitle.innerHTML = "<h1> +1 YOU WON! </h1>"
     yourWins.innerText = `WINS: ${game.you.wins}`
   } else if (game.winner === "COMP") {
-    gameTitle.innerHTML = "<h1> COMPUTER WON!  </h1>"
+    gameTitle.innerHTML = "<h1> +1 COMPUTER WON! </h1>"
     computerWins.innerText = `WINS: ${game.computer.wins}`
   } else {
     gameTitle.innerHTML = "<h1> DRAW! </h1>"
     }
-  }
+  };
 
 function displayWinnerScreen() {
   winnerScreen.innerHTML = `
@@ -70,7 +70,7 @@ function displayWinnerScreen() {
   <img class="win-icons" src="./assets/${game.you.choice}.svg">
   <h2> vs </h2>
   <img class="win-icons" src="./assets/${game.computer.choice}.svg">
-  <h3> - COMPUTER </h3>
+  <h3> - COMP </h3>
   `
 };
 
@@ -78,7 +78,7 @@ function changeGameMode() {
   show(gameMode);
   hide(buttonChangeGame);
   hide(fightersSection);
-  gameTitle.innerHTML = "<h3> CHOOSE YOUR GAME </h3>"
+  gameTitle.innerHTML = "<h3> CHOOSE YOUR GAME: </h3>"
 };
 
 function getFighters(event) {
@@ -91,7 +91,7 @@ function chooseClassicGame(event) {
   show(buttonChangeGame);
   show(fightersSection);
   hide(gameMode);
-  gameTitle.innerHTML = "<h3> CHOOSE YOUR FIGHTER </h3>"
+  gameTitle.innerHTML = "<h3> CHOOSE YOUR FIGHTER: </h3>"
   fightersSection.innerHTML = `
   <img class="icon" id="iconRock" src="./assets/iconRock.svg" alt="rock">
   <img class="icon" id="iconPaper" src="./assets/iconPaper.svg" alt="paper">
@@ -104,7 +104,7 @@ function chooseSpicyGame(event) {
   show(buttonChangeGame);
   show(fightersSection);
   hide(gameMode);
-  gameTitle.innerHTML = "<h3> CHOOSE YOUR FIGHTER </h3>"
+  gameTitle.innerHTML = "<h3> CHOOSE YOUR FIGHTER: </h3>"
   fightersSection.innerHTML = `
   <img class="icon" id="iconCow" src="./assets/iconCow.svg" alt="cow">
   <img class="icon" id="iconChili" src="./assets/iconChili.svg" alt="chili">
@@ -115,7 +115,7 @@ function chooseSpicyGame(event) {
 };
 
 function resetBoard() {
-  gameTitle.innerHTML = ""
+  gameTitle.innerHTML = "<h3> CHOOSE YOUR FIGHTER: </h3>"
   show(fightersSection);
   hide(gameMode);
   hide(winnerScreen);

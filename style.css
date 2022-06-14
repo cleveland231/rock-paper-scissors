@@ -27,7 +27,6 @@ h3 {
   font-size: 20px;
 }
 
-
 body {
   display: flex;
   flex-direction: row;
@@ -104,8 +103,8 @@ button {
 }
 
 .you-icon, .computer-icon {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
 }
 
 .classic-game-rules, .spicy-game-rules {
