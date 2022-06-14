@@ -1,5 +1,7 @@
 # rock-paper-scissors
-<img width="300" alt="rock-paper-scissor-icons" src="https://user-images.githubusercontent.com/96998327/173676539-03b83157-e2d8-4af3-8b8a-14240339ad3e.png">
+
+![Screen Shot 2022-06-14 at 2 18 08 PM](https://user-images.githubusercontent.com/96998327/173681328-13afcac3-5112-4f17-80af-4ea12770cad2.png)
+![Screen Shot 2022-06-14 at 2 18 26 PM](https://user-images.githubusercontent.com/96998327/173681342-b4de916c-da51-4537-a845-94e042598971.png)
 
 ## Table of Contents
   - [Introduction](#introduction)
