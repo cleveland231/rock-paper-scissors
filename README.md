@@ -1,5 +1,5 @@
 # rock-paper-scissors
-<img width="130" alt="rock-paper-scissor-icons" src="https://user-images.githubusercontent.com/96998327/173676539-03b83157-e2d8-4af3-8b8a-14240339ad3e.png">
+<img width="300" alt="rock-paper-scissor-icons" src="https://user-images.githubusercontent.com/96998327/173676539-03b83157-e2d8-4af3-8b8a-14240339ad3e.png">
 
 ## Table of Contents
   - [Introduction](#introduction)
