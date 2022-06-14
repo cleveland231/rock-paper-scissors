@@ -30,7 +30,7 @@
 
 ## Deployed Page
 
-Visit the published rockPaperScissors page [here](https://cleveland231.github.io/cleveland231/)
+Visit the published rockPaperScissors page [here](file:///Users/clevelandticoalu/turing/rock-paper-scissors/index.html)
 
 ## Possible Future Extensions
 
